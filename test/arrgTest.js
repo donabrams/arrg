@@ -37,4 +37,17 @@ describe('arrg', function() {
 	it('supports use of __.req or __.required', function() {
 		expect(__.req).to.equal(__.required);
 	});
+	it('makes all default args immutable by default', function() {
+		var func = __(function(a) { a.b[0].c = "bad"; return a.b[0].c}, [{b:[{c:"good"}]}]);
+		var res = func();
+		expect(res).to.equal('good');
+	});
+	it('copies default args if mutability is desired', function() {
+		var func = __(function(a) { 
+			a.b[0].c = (a.b[0].c === "bad") ? "good" : "bad"; 
+			return a.b[0].c;
+		}, [{b:[{c:"bad"}]}], true);
+		expect(func()).to.equal('good');
+		expect(func()).to.equal('good');
+	});
 });
