@@ -7,7 +7,7 @@
     "test": "mocha"
   },
   "author": "don.abrams@craftsy.com",
-  "license": "ISC",
+  "license": "None yet",
   "devDependencies": {
     "chai": "^2.1.0",
     "mocha": "^2.1.0"
