@@ -2,13 +2,15 @@ module.exports = Arrg;
 
 Arrg.req = Arrg.required = {};
 function Arrg(func, args, allowMutable) {
-	return decorateFuncWithArgs(func, args || [], allowMutable);
-}
-
-function decorateFuncWithArgs(func, argDescrs, allowMutable) { 
 	if (typeof func !== "function") { 
 		throw new Error("no function passed");
 	}
+	args = args || [];
+	allowMutable = !!allowMutable;
+	return decorateFuncWithArgs(func, args, allowMutable);
+}
+
+function decorateFuncWithArgs(func, argDescrs, allowMutable) {
 	if (!allowMutable) {
 		deepFreeze(argDescrs);
 	}

@@ -2,9 +2,9 @@
   "name": "arrgs",
   "version": "1.0.0",
   "description": "Decorate a function to specify optional and default arguments",
-  "main": "index.js",
+  "main": "arrg.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "test": "mocha"
   },
   "author": "don.abrams@craftsy.com",
   "license": "ISC",
